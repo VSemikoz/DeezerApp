@@ -1,4 +1,4 @@
-package ru.vssemikoz.deezerapp.di
+package ru.vssemikoz.deezerapp.base.di
 
 import android.content.Context
 import dagger.Module
@@ -9,13 +9,9 @@ import ru.vssemikoz.deezerapp.DeezerApplication
 class ApplicationModule(private val application: DeezerApplication) {
 
     @Provides
-    fun provideApplication(): DeezerApplication {
-        return application
-    }
+    fun provideApplication(): DeezerApplication = application
 
     @Provides
-    fun provideContext(): Context {
-        return application.applicationContext
-    }
+    fun provideContext(): Context = application.applicationContext
 
 }

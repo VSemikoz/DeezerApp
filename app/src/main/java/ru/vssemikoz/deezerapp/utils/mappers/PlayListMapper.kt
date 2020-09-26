@@ -1,4 +1,4 @@
-package ru.vssemikoz.deezerapp.utils
+package ru.vssemikoz.deezerapp.utils.mappers
 
 import ru.vssemikoz.deezerapp.base.BaseMapper
 import ru.vssemikoz.deezerapp.models.DeezerApiPlayListsResponse

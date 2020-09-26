@@ -1,4 +1,4 @@
-package ru.vssemikoz.deezerapp.data
+package ru.vssemikoz.deezerapp.data.repository
 
 import io.reactivex.rxjava3.core.Observable
 import ru.vssemikoz.deezerapp.models.PlayList

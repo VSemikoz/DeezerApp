@@ -1,4 +1,4 @@
-package ru.vssemikoz.deezerapp.data
+package ru.vssemikoz.deezerapp.data.api
 
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
