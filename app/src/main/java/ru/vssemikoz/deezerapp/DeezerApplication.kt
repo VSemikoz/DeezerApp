@@ -1,10 +1,9 @@
 package ru.vssemikoz.deezerapp
 
 import android.app.Application
-import android.util.Log
-import ru.vssemikoz.deezerapp.di.ApplicationComponent
-import ru.vssemikoz.deezerapp.di.ApplicationModule
-import ru.vssemikoz.deezerapp.di.DaggerApplicationComponent
+import ru.vssemikoz.deezerapp.base.di.ApplicationComponent
+import ru.vssemikoz.deezerapp.base.di.ApplicationModule
+import ru.vssemikoz.deezerapp.base.di.DaggerApplicationComponent
 
 class DeezerApplication : Application() {
     companion object {

@@ -2,7 +2,7 @@ package ru.vssemikoz.deezerapp.features.usecase
 
 import io.reactivex.rxjava3.core.Observable
 import ru.vssemikoz.deezerapp.base.BaseUseCase
-import ru.vssemikoz.deezerapp.data.DeezerRepository
+import ru.vssemikoz.deezerapp.data.repository.DeezerRepository
 import ru.vssemikoz.deezerapp.models.Track
 import javax.inject.Inject
 
