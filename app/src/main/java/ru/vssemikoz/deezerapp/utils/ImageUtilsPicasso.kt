@@ -9,7 +9,7 @@ object ImageUtilsPicasso {
     fun setImageByUrl(url: String, imageView: ImageView) {
         Picasso.with(DeezerApplication.getInstance()?.applicationContext)
             .load(url)
-            .error(R.mipmap.ic_launcher)
+            .error(R.mipmap.no_image_found)
             .into(imageView)
     }
 
