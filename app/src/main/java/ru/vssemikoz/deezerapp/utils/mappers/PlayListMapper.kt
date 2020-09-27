@@ -10,8 +10,8 @@ class PlayListMapper : BaseMapper<DeezerApiPlayListsResponse, List<PlayList>> {
         mapObject.apiPlayListsResponse.forEach {
             result.add(
                 PlayList(
-                    cover = it.picture,
-                    title = it.title,
+                    cover = it.pictureMedium,
+                    title = it.title.reduceString(15),
                     author = it.creator.name,
                     duration = it.duration
                 )
@@ -19,4 +19,7 @@ class PlayListMapper : BaseMapper<DeezerApiPlayListsResponse, List<PlayList>> {
         }
         return result
     }
+
+    private fun String.reduceString(reduceLength: Int): String = if (reduceLength > length) this
+    else "${substring(0, reduceLength)}..."
 }
