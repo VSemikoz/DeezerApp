@@ -1,8 +1,10 @@
 package ru.vssemikoz.deezerapp.features
 
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -14,11 +16,23 @@ import ru.vssemikoz.deezerapp.models.PlayList
 import ru.vssemikoz.deezerapp.utils.ImageUtilsPicasso
 import javax.inject.Inject
 
-class PlayListAdapter @Inject constructor():  BaseAdapter<PlayList>() {
+class PlayListAdapter @Inject constructor() : BaseAdapter<PlayList>() {
+
+    lateinit var windowManager: WindowManager
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<PlayList> {
         val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.playlist_item, parent, false)
+        initViewSize(parent, view)
         return PlayListViewHolder(view, listener)
+    }
+
+    private fun initViewSize(parent: ViewGroup, view: View) {
+        val metrics = DisplayMetrics()
+        val margin = parent.context.resources.getDimension(R.dimen.margin_16dp).toInt()
+        windowManager.defaultDisplay?.getMetrics(metrics)
+        view.layoutParams.width = metrics.widthPixels / 3 - margin
+        view.layoutParams.height = metrics.widthPixels / 3 - margin
+        view.requestLayout()
     }
 
     class PlayListViewHolder(view: View, listener: OnRecyclerItemClickListener?) :

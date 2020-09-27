@@ -50,6 +50,7 @@ class PlayListSelectionFragment : Fragment() {
         val numberOfColumns = 3
         recyclerView = view.rv_playlist
         recyclerView.layoutManager = GridLayoutManager(context, numberOfColumns)
+        recyclerViewAdapter.windowManager = activity!!.windowManager
         recyclerViewAdapter.listener = object : BaseAdapter.OnRecyclerItemClickListener {
             override fun onRecyclerItemClick(position: Int, imageView: ImageView) {
                 val playList = recyclerViewAdapter.items?.get(position)
