@@ -1,37 +1,27 @@
 package ru.vssemikoz.deezerapp.features.playlistselection
 
-import androidx.databinding.BaseObservable
-import androidx.databinding.Bindable
+
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import ru.vssemikoz.deezerapp.BR
 import ru.vssemikoz.deezerapp.base.BaseUseCase
+import ru.vssemikoz.deezerapp.base.BaseViewModel
 import ru.vssemikoz.deezerapp.models.PlayList
 import javax.inject.Inject
 
-class PlayListSelectionViewModel @Inject constructor() : BaseObservable() {
-
-    private var playListSelectionNavigator: PlayListSelectionNavigator? = null
-
-    @Bindable
-    var loading = true
-        set(value) {
-            field = value
-            notifyPropertyChanged(BR.loading)
-        }
+class PlayListSelectionViewModel @Inject constructor() : BaseViewModel<PlayListSelectionNavigator>() {
 
     @Inject
     lateinit var  getPlayListsUseCase: BaseUseCase<Observable<List<PlayList>>, Int>
     var items: MutableLiveData<List<PlayList>> = MutableLiveData()
 
 
-    fun setNavigator(navigator: PlayListSelectionNavigator) {
-        playListSelectionNavigator = navigator
+    fun setNavigator(layListSelectionNavigator: PlayListSelectionNavigator) {
+        navigator = layListSelectionNavigator
     }
 
-    fun start() {
+    override fun start() {
         getPlayListsUseCase.run(5)
             .doOnSubscribe { loading = true }
             .doOnTerminate { loading = false }
@@ -45,7 +35,7 @@ class PlayListSelectionViewModel @Inject constructor() : BaseObservable() {
     }
 
     fun onPlayListClick(playList: PlayList){
-        playListSelectionNavigator?.onPlayListSelected(playList)
+        navigator?.onPlayListSelected(playList)
     }
 
 }
