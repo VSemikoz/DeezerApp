@@ -1,6 +1,7 @@
 package ru.vssemikoz.deezerapp.features.playlistselection
 
 
+import android.widget.ImageView
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -34,8 +35,8 @@ class PlayListSelectionViewModel @Inject constructor() : BaseViewModel<PlayListS
             )
     }
 
-    fun onPlayListClick(playList: PlayList){
-        navigator?.onPlayListSelected(playList)
+    fun onPlayListClick(playList: PlayList, imageView: ImageView){
+        navigator?.onPlayListSelected(playList, imageView)
     }
 
 }

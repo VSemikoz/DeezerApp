@@ -54,7 +54,7 @@ class PlayListSelectionFragment : Fragment() {
         recyclerViewAdapter.listener = object : BaseAdapter.OnRecyclerItemClickListener {
             override fun onRecyclerItemClick(position: Int, imageView: ImageView) {
                 val playList = recyclerViewAdapter.items?.get(position)
-                playList?.let { viewModel.onPlayListClick(it) }
+                playList?.let { viewModel.onPlayListClick(it, imageView) }
             }
         }
         recyclerView.adapter = recyclerViewAdapter

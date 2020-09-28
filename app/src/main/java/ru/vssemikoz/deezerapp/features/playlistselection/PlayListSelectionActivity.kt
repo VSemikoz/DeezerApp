@@ -2,6 +2,7 @@ package ru.vssemikoz.deezerapp.features.playlistselection
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import ru.vssemikoz.deezerapp.R
 import ru.vssemikoz.deezerapp.models.PlayList
@@ -25,7 +26,7 @@ class PlayListSelectionActivity : AppCompatActivity(), PlayListSelectionNavigato
     }
 
 
-    override fun onPlayListSelected(playList: PlayList) {
+    override fun onPlayListSelected(playList: PlayList, imageView: ImageView) {
         Log.d("onPlayListSelected", playList.toString())
     }
 }
