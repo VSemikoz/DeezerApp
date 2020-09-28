@@ -9,7 +9,7 @@ abstract class BaseViewModel<N> : BaseObservable() {
     var loading = true
         set(value) {
             field = value
-            notifyPropertyChanged(BR.loading)
+            notifyPropertyChanged(BR._all)
         }
 
     var navigator: N? = null
