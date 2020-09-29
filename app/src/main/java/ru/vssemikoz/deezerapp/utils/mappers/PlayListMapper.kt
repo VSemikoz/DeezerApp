@@ -11,7 +11,8 @@ object PlayListMapper : BaseMapper<DeezerApiPlayListsResponse, List<PlayList>> {
             result.add(
                 PlayList(
                     id = it.id.toInt(),
-                    cover = it.pictureMedium,
+                    coverSmall = it.pictureMedium,
+                    coverBig = it.pictureBig,
                     title = it.title,
                     author = it.creator.name,
                     duration = it.duration.toInt()
