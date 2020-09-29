@@ -13,6 +13,7 @@
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/cl_playlist_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
@@ -46,7 +47,8 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/margin_16dp"
-                        android:text="@{vm_details.getString()}"
+                        android:textColor="@color/primaryTextColor"
+                        android:text="@{vm_details.title}"
                         android:textSize="@dimen/large_text_size"
                         tools:text="@tools:sample/lorem" />
 
@@ -56,7 +58,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="10"
                         android:padding="@dimen/margin_16dp"
-                        app:imageUrl="@{vm_details.playList.cover}"
+                        app:imageUrl="@{vm_details.playList.coverBig}"
                         tools:srcCompat="@tools:sample/avatars" />
                 </LinearLayout>
 
@@ -80,29 +82,29 @@
             tools:showIn="@layout/playlist_details_frag">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_details"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_16dp"
-                android:elevation="@dimen/basic_elevation"
-                app:cardCornerRadius="@dimen/card_radius">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary"
-                    android:textSize="@dimen/large_text_size"
-                    android:text="@{vm_details.loading ? vm_details.getEmptyName() : vm_details.shownTrackList}"
-                    tools:text="@tools:sample/lorem/random" />
-                />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_tracklist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <androidx.core.widget.ContentLoadingProgressBar
+                    android:id="@+id/clp_fetching"
+                    style="@style/Widget.AppCompat.ProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{vm_details.loading?View.VISIBLE:View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.cardview.widget.CardView>
-
-
         </androidx.core.widget.NestedScrollView>
-
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 
 </layout>
 
