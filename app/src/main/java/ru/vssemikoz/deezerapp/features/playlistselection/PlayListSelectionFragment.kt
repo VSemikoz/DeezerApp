@@ -16,7 +16,7 @@ import ru.vssemikoz.deezerapp.DeezerApplication
 import ru.vssemikoz.deezerapp.R
 import ru.vssemikoz.deezerapp.base.adapter.BaseAdapter
 import ru.vssemikoz.deezerapp.databinding.PlayListSelectionFragBinding
-import ru.vssemikoz.deezerapp.features.PlayListAdapter
+import ru.vssemikoz.deezerapp.features.adapters.PlayListAdapter
 import ru.vssemikoz.deezerapp.models.PlayList
 import javax.inject.Inject
 
@@ -26,7 +26,7 @@ class PlayListSelectionFragment : Fragment() {
     lateinit var viewModel: PlayListSelectionViewModel
 
     @Inject
-    lateinit var recyclerViewAdapter: PlayListAdapter
+    lateinit var adapter: PlayListAdapter
 
     private lateinit var recyclerView: RecyclerView
 
@@ -36,8 +36,7 @@ class PlayListSelectionFragment : Fragment() {
         viewModel.navigator = activity as PlayListSelectionActivity
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
+    override fun onCreateView(inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -46,7 +45,6 @@ class PlayListSelectionFragment : Fragment() {
         val view = binding.root
         binding.vmPlaylistScreen = viewModel
         binding.setVariable(BR.vm_playlist_screen, viewModel)
-
         initRecyclerView(view)
         return  view
     }
@@ -55,24 +53,24 @@ class PlayListSelectionFragment : Fragment() {
         val numberOfColumns = 3
         recyclerView = view.rv_playlist
         recyclerView.layoutManager = GridLayoutManager(context, numberOfColumns)
-        recyclerViewAdapter.windowManager = activity!!.windowManager
-        recyclerViewAdapter.listener = object : BaseAdapter.OnRecyclerItemClickListener {
+        adapter.windowManager = activity!!.windowManager
+        adapter.listener = object : BaseAdapter.OnRecyclerItemClickListener {
             override fun onRecyclerItemClick(position: Int, imageView: ImageView) {
-                val playList = recyclerViewAdapter.items?.get(position)
+                val playList = adapter.items?.get(position)
                 playList?.let { viewModel.onPlayListClick(it, imageView) }
             }
         }
-        recyclerView.adapter = recyclerViewAdapter
+        recyclerView.adapter = adapter
     }
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val userListUpdateObserver: Observer<List<PlayList>> = Observer {
-            recyclerViewAdapter.items = it
-            recyclerViewAdapter.notifyDataSetChanged()
+        val playListUpdateObserver: Observer<List<PlayList>> = Observer {
+            adapter.items = it
+            adapter.notifyDataSetChanged()
         }
-        viewModel.items.observe(this, userListUpdateObserver)
+        viewModel.items.observe(this, playListUpdateObserver)
         viewModel.start()
     }
 
