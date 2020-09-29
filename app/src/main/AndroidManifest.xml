@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".features.playlistselection.PlayListSelectionActivity"
+        <activity
+            android:name=".features.playlistselection.PlayListSelectionActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".features.playlistdetails.PlayListDetailsActivity"
+            android:parentActivityName=".features.playlistselection.PlayListSelectionActivity"
+            android:theme="@style/ThemeNoActionBar" />
     </application>
 
 </manifest>
