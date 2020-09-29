@@ -2,24 +2,23 @@ package ru.vssemikoz.deezerapp.features
 
 import android.util.Log
 import android.view.View
-import android.widget.EditText
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import de.hdodenhof.circleimageview.CircleImageView
+import androidx.recyclerview.widget.RecyclerView
 
-//@CoordinatorLayout.DefaultBehavior(PlayListDetailsBehavior::class)
-class PlayListDetailsBehavior<V: View>() : CoordinatorLayout.Behavior<V>() {
+class PlayListDetailsBehavior() : CoordinatorLayout.Behavior<RecyclerView>() {
+    var listener: OnSwipeListener? = null
     interface OnSwipeListener{
         fun onSwipe()
     }
-    override fun layoutDependsOn(parent: CoordinatorLayout, child: V, dependency: View): Boolean {
+    override fun layoutDependsOn(parent: CoordinatorLayout, child: RecyclerView, dependency: View): Boolean {
         Log.d("PlayListDetailsBehavior", "layoutDependsOn")
         return dependency is Toolbar
     }
 
     override fun onDependentViewChanged(
         parent: CoordinatorLayout,
-        child: V,
+        child: RecyclerView,
         dependency: View
     ): Boolean {
         Log.d("PlayListDetailsBehavior", "onDependentViewChanged")
