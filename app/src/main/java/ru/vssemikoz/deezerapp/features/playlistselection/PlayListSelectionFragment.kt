@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.play_list_selection_frag.view.*
+import ru.vssemikoz.deezerapp.BR
 import ru.vssemikoz.deezerapp.DeezerApplication
 import ru.vssemikoz.deezerapp.R
 import ru.vssemikoz.deezerapp.base.adapter.BaseAdapter
@@ -39,11 +41,14 @@ class PlayListSelectionFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view: View = inflater.inflate(R.layout.play_list_selection_frag, container, false)
-        val viewDataBinding: PlayListSelectionFragBinding = PlayListSelectionFragBinding.bind(view)
-        viewDataBinding.viewmodel = viewModel
+        val binding: PlayListSelectionFragBinding =
+            DataBindingUtil.inflate(inflater, R.layout.play_list_selection_frag, container, false)
+        val view = binding.root
+        binding.vmPlaylistScreen = viewModel
+        binding.setVariable(BR.vm_playlist_screen, viewModel)
+
         initRecyclerView(view)
-        return view
+        return  view
     }
 
     private fun initRecyclerView(view: View) {
