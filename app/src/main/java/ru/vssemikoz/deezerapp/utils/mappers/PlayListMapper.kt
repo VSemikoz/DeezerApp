@@ -4,22 +4,20 @@ import ru.vssemikoz.deezerapp.base.BaseMapper
 import ru.vssemikoz.deezerapp.models.DeezerApiPlayListsResponse
 import ru.vssemikoz.deezerapp.models.PlayList
 
-class PlayListMapper : BaseMapper<DeezerApiPlayListsResponse, List<PlayList>> {
+object PlayListMapper : BaseMapper<DeezerApiPlayListsResponse, List<PlayList>> {
     override fun map(mapObject: DeezerApiPlayListsResponse): List<PlayList> {
         val result = mutableListOf<PlayList>()
         mapObject.apiPlayListsResponse.forEach {
             result.add(
                 PlayList(
+                    id = it.id.toInt(),
                     cover = it.pictureMedium,
-                    title = it.title.reduceString(15),
+                    title = it.title,
                     author = it.creator.name,
-                    duration = it.duration
+                    duration = it.duration.toInt()
                 )
             )
         }
         return result
     }
-
-    private fun String.reduceString(reduceLength: Int): String = if (reduceLength > length) this
-    else "${substring(0, reduceLength)}..."
 }

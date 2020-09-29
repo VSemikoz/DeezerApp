@@ -15,7 +15,7 @@ class RemoteDeezerRepository @Inject constructor() : DeezerRepository {
 
     override fun getUserPlayLists(userId: Int): Observable<List<PlayList>> {
         return api.getUserPlayList(5).map {
-            PlayListMapper().map(it)
+            PlayListMapper.map(it)
         }
     }
 
