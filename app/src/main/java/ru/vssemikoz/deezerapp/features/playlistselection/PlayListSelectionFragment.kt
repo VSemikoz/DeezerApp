@@ -33,7 +33,7 @@ class PlayListSelectionFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DeezerApplication.getApplicationComponent().fragmentComponent().inject(this)
-        viewModel.setNavigator(activity as PlayListSelectionActivity)
+        viewModel.navigator = activity as PlayListSelectionActivity
     }
 
     override fun onCreateView(
