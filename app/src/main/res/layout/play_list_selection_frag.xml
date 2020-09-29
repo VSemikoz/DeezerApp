@@ -7,7 +7,7 @@
         <import type="android.view.View" />
 
         <variable
-            name="viewmodel"
+            name="vm_playlist_screen"
             type="ru.vssemikoz.deezerapp.features.playlistselection.PlayListSelectionViewModel" />
     </data>
 
@@ -33,7 +33,7 @@
             style="@style/Widget.AppCompat.ProgressBar"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:visibility="@{viewmodel.loading?View.VISIBLE:View.GONE}"
+            android:visibility="@{vm_playlist_screen.loading?View.VISIBLE:View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
