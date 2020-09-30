@@ -47,8 +47,8 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/margin_16dp"
-                        android:textColor="@color/primaryTextColor"
                         android:text="@{vm_details.title}"
+                        android:textColor="@color/primaryTextColor"
                         android:textSize="@dimen/large_text_size"
                         tools:text="@tools:sample/lorem" />
 
@@ -58,6 +58,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="10"
                         android:padding="@dimen/margin_16dp"
+                        android:transitionName="@string/playlist_image"
                         app:imageUrl="@{vm_details.playList.coverBig}"
                         tools:srcCompat="@tools:sample/avatars" />
                 </LinearLayout>

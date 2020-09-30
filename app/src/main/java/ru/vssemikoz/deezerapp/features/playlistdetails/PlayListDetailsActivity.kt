@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import ru.vssemikoz.deezerapp.R
 import ru.vssemikoz.deezerapp.utils.ActivityUtils
 
-class PlayListDetailsActivity : AppCompatActivity(), PlayListDetailsNavigator {
+class PlayListDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.playlist_details_act)
@@ -20,10 +20,6 @@ class PlayListDetailsActivity : AppCompatActivity(), PlayListDetailsNavigator {
             )
         }
 
-    }
-
-    override fun onScreenSwipe() {
-        TODO("Not yet implemented")
     }
 }
 
