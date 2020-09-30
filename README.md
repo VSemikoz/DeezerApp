@@ -5,4 +5,5 @@ First screen represents playlists of fixed user(id = 5) in format cover-title.
 in format track name, author, duration in format hh.mm.
 
 Language: Kotlin
+
 Usage: MVVM, LiveData, Retrofit, RxJava3, Dagger2, JUnit, Mockito
