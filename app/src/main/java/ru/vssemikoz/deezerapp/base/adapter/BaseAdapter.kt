@@ -1,11 +1,10 @@
 package ru.vssemikoz.deezerapp.base.adapter
 
-import android.content.Context
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class BaseAdapter<T>() : RecyclerView.Adapter<BaseViewHolder<T>>() {
+abstract class BaseAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>() {
     var items: List<T>? = null
     var listener: OnRecyclerItemClickListener? = null
 

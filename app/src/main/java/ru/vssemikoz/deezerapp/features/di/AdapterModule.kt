@@ -3,13 +3,20 @@ package ru.vssemikoz.deezerapp.features.di
 import dagger.Module
 import dagger.Provides
 import ru.vssemikoz.deezerapp.base.adapter.BaseAdapter
-import ru.vssemikoz.deezerapp.features.PlayListAdapter
+import ru.vssemikoz.deezerapp.features.adapters.PlayListAdapter
+import ru.vssemikoz.deezerapp.features.adapters.TrackAdapter
 import ru.vssemikoz.deezerapp.models.PlayList
+import ru.vssemikoz.deezerapp.models.Track
 
 @Module
 class AdapterModule {
     @Provides
-    fun provideAdapter(adapter: PlayListAdapter): BaseAdapter<PlayList> {
+    fun providePlayListAdapter(adapter: PlayListAdapter): BaseAdapter<PlayList> {
+        return adapter
+    }
+
+    @Provides
+    fun provideTrackAdapter(adapter: TrackAdapter): BaseAdapter<Track> {
         return adapter
     }
 }

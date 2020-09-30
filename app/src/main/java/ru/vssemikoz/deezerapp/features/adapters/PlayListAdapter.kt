@@ -1,4 +1,4 @@
-package ru.vssemikoz.deezerapp.features
+package ru.vssemikoz.deezerapp.features.adapters
 
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
@@ -48,9 +48,12 @@ class PlayListAdapter @Inject constructor() : BaseAdapter<PlayList>() {
         }
 
         override fun onBind(item: PlayList, listener: OnRecyclerItemClickListener?) {
-            playListName.text = item.title
-            ImageUtilsPicasso.setImageByUrl(item.cover, playListImage)
+            playListName.text = item.title.reduceString(15)
+            ImageUtilsPicasso.setImageByUrl(playListImage, item.coverSmall)
         }
+
+        private fun String.reduceString(reduceLength: Int): String = if (reduceLength > length) this
+        else "${substring(0, reduceLength)}..."
 
     }
 
