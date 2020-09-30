@@ -8,5 +8,5 @@ import ru.vssemikoz.deezerapp.models.Track
 interface DeezerRepository {
     fun getUserPlayLists(userId: Int): Observable<List<PlayList>>
 
-    fun getTracksFromPlayListLists(playListId: Int): Observable<List<Track>>
+    fun getTracksFromPlayList(playListId: Int): Observable<List<Track>>
 }
