@@ -11,5 +11,5 @@ class GetTrackUseCase @Inject constructor() : BaseUseCase<Observable<List<Track>
     lateinit var deezerRepository: DeezerRepository
 
     override fun run(params: Int): Observable<List<Track>> =
-        deezerRepository.getTracksFromPlayListLists(params)
+        deezerRepository.getTracksFromPlayList(params)
 }

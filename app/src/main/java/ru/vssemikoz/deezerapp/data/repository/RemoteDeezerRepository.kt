@@ -19,7 +19,7 @@ class RemoteDeezerRepository @Inject constructor() : DeezerRepository {
         }
     }
 
-    override fun getTracksFromPlayListLists(playListId: Int): Observable<List<Track>> {
+    override fun getTracksFromPlayList(playListId: Int): Observable<List<Track>> {
         return api.getTrackFromPlayList(playListId).map {
             TrackMapper().map(it)
         }
