@@ -18,5 +18,6 @@ class NetworkModule {
 
     @Provides
     fun provideDeezerApi(retrofit: Retrofit): DeezerApi = retrofit.create<DeezerApi>(
-        DeezerApi::class.java)
+        DeezerApi::class.java
+    )
 }

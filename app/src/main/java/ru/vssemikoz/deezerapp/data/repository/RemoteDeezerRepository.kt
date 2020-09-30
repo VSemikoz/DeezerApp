@@ -9,7 +9,7 @@ import ru.vssemikoz.deezerapp.utils.mappers.TrackMapper
 import javax.inject.Inject
 
 class RemoteDeezerRepository @Inject constructor() : DeezerRepository {
-    
+
     @Inject
     lateinit var api: DeezerApi
 

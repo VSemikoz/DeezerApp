@@ -24,14 +24,13 @@ class PlayListDetailsViewModel @Inject constructor() : BaseObservable() {
     @Inject
     lateinit var getTrackUseCase: BaseUseCase<Observable<List<Track>>, Int>
 
-    var navigator: PlayListDetailsNavigator? = null
     var trackList: MutableLiveData<List<Track>> = MutableLiveData()
     lateinit var playList: PlayList
     lateinit var title: String
 
 
     fun start() {
-        title =  "${playList.author} - ${PlayListDateConverter.map(playList.duration)}"
+        title = "${playList.author} - ${PlayListDateConverter.map(playList.duration)}"
         getTrackUseCase.run(playList.id)
             .doOnSubscribe { loading = true }
             .doOnTerminate { loading = false }

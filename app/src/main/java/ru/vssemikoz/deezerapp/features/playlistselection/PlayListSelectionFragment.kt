@@ -36,7 +36,8 @@ class PlayListSelectionFragment : Fragment() {
         viewModel.navigator = activity as PlayListSelectionActivity
     }
 
-    override fun onCreateView(inflater: LayoutInflater,
+    override fun onCreateView(
+        inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -46,7 +47,7 @@ class PlayListSelectionFragment : Fragment() {
         binding.vmPlaylistScreen = viewModel
         binding.setVariable(BR.vm_playlist_screen, viewModel)
         initRecyclerView(view)
-        return  view
+        return view
     }
 
     private fun initRecyclerView(view: View) {

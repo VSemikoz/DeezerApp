@@ -4,16 +4,17 @@ package ru.vssemikoz.deezerapp.features.playlistselection
 import android.widget.ImageView
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
+import androidx.databinding.library.baseAdapters.BR
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import ru.vssemikoz.deezerapp.AppConfig
 import ru.vssemikoz.deezerapp.base.BaseUseCase
 import ru.vssemikoz.deezerapp.models.PlayList
 import javax.inject.Inject
-import androidx.databinding.library.baseAdapters.BR
 
-class PlayListSelectionViewModel @Inject constructor():BaseObservable() {
+class PlayListSelectionViewModel @Inject constructor() : BaseObservable() {
     @Bindable
     var loading = true
         set(value) {
@@ -23,11 +24,15 @@ class PlayListSelectionViewModel @Inject constructor():BaseObservable() {
     var navigator: PlayListSelectionNavigator? = null
 
     @Inject
-    lateinit var  getPlayListsUseCase: BaseUseCase<Observable<List<PlayList>>, Int>
+    lateinit var getPlayListsUseCase: BaseUseCase<Observable<List<PlayList>>, Int>
+
+    @Inject
+    lateinit var config: AppConfig
+
     var items: MutableLiveData<List<PlayList>> = MutableLiveData()
 
     fun start() {
-        getPlayListsUseCase.run(5)
+        getPlayListsUseCase.run(config.fixedUserId)
             .doOnSubscribe { loading = true }
             .doOnTerminate { loading = false }
             .subscribeOn(Schedulers.computation())
@@ -39,7 +44,7 @@ class PlayListSelectionViewModel @Inject constructor():BaseObservable() {
             )
     }
 
-    fun onPlayListClick(playList: PlayList, imageView: ImageView){
+    fun onPlayListClick(playList: PlayList, imageView: ImageView) {
         navigator?.onPlayListSelected(playList, imageView)
     }
 

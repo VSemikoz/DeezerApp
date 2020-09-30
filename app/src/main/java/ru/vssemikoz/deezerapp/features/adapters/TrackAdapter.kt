@@ -12,7 +12,7 @@ import ru.vssemikoz.deezerapp.models.Track
 import ru.vssemikoz.deezerapp.utils.mappers.TrackDateConverter
 import javax.inject.Inject
 
-class TrackAdapter @Inject constructor(): BaseAdapter<Track>() {
+class TrackAdapter @Inject constructor() : BaseAdapter<Track>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Track> {
         val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.track_item, parent, false)

@@ -7,7 +7,7 @@ import ru.vssemikoz.deezerapp.DeezerApplication
 import ru.vssemikoz.deezerapp.R
 
 class ImageUtilsPicasso {
-    companion object{
+    companion object {
         @JvmStatic
         @BindingAdapter("bind:imageUrl")
         fun setImageByUrl(imageView: ImageView, url: String) {
