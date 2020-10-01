@@ -6,6 +6,6 @@ import dagger.Provides
 @Module
 class RepositoryModule {
     @Provides
-    fun provideRepository(remoteDeezerRepository: RemoteDeezerRepository): DeezerRepository =
+    fun provideRemoteRepository(remoteDeezerRepository: RemoteDeezerRepository): DeezerRepository =
         remoteDeezerRepository
 }

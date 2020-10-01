@@ -10,6 +10,6 @@ class AppConfigModule {
     @Provides
     fun provideAppConfig(): AppConfig = AppConfig(
         baseUrl = BuildConfig.MAIN_URL,
-        vaseUserId = BuildConfig.BASE_USER_ID
+        fixedUserId = BuildConfig.BASE_USER_ID
     )
 }

@@ -12,7 +12,7 @@ class TrackMapper : BaseMapper<DeezerApiTrackResponse, List<Track>> {
                 Track(
                     title = it.title,
                     artist = it.artist,
-                    duration = it.duration
+                    duration = it.duration.toInt()
                 )
             )
         }
