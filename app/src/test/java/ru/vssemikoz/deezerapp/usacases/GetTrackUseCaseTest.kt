@@ -20,7 +20,7 @@ import kotlin.test.assertFailsWith
 class GetTrackUseCaseTest {
     private val exampleTrackList: List<Track> = List(10) { TrackItemGenerator.generate() }
     private val emptyTrackListList: List<Track> = emptyList()
-    private var requestPlayListId by Delegates.notNull<Int>()
+    private var requestPlayListId by Delegates.notNull<String>()
 
     @Mock
     lateinit var repository: DeezerRepository
@@ -30,7 +30,7 @@ class GetTrackUseCaseTest {
 
     @Before
     fun init() {
-        requestPlayListId = 5
+        requestPlayListId = "5"
     }
 
 

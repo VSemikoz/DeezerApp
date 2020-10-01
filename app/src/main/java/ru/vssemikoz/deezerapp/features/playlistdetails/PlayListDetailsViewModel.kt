@@ -22,7 +22,7 @@ class PlayListDetailsViewModel @Inject constructor() : BaseObservable() {
         }
 
     @Inject
-    lateinit var getTrackUseCase: BaseUseCase<Observable<List<Track>>, Int>
+    lateinit var getTrackUseCase: BaseUseCase<Observable<List<Track>>, String>
 
     var trackList: MutableLiveData<List<Track>> = MutableLiveData()
     lateinit var playList: PlayList

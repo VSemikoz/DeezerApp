@@ -12,10 +12,10 @@ import ru.vssemikoz.deezerapp.models.Track
 @Module
 class UseCaseModule {
     @Provides
-    fun provideGetPlayListUseCase(getPlayListsUseCase: GetPlayListsUseCase): BaseUseCase<Observable<List<PlayList>>, Int> =
+    fun provideGetPlayListUseCase(getPlayListsUseCase: GetPlayListsUseCase): BaseUseCase<Observable<List<PlayList>>, String> =
         getPlayListsUseCase
 
     @Provides
-    fun provideGetTrackUseCase(getTrackUseCase: GetTrackUseCase): BaseUseCase<Observable<List<Track>>, Int> =
+    fun provideGetTrackUseCase(getTrackUseCase: GetTrackUseCase): BaseUseCase<Observable<List<Track>>, String> =
         getTrackUseCase
 }

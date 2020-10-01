@@ -8,7 +8,7 @@ object PlayListItemGenerator : BaseGenerator<PlayList> {
     override fun generate(): PlayList {
         val random = Random()
         return PlayList(
-            id = random.nextInt(),
+            id = "${random.nextInt()}",
             coverSmall = "${random.nextInt()}",
             coverBig = "${random.nextInt()}",
             title = "${random.nextInt()}",

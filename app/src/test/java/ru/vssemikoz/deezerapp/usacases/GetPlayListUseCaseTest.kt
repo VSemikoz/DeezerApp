@@ -21,7 +21,7 @@ import kotlin.test.assertFailsWith
 class GetPlayListUseCaseTest {
     private val examplePlayList: List<PlayList> = List(10) { PlayListItemGenerator.generate() }
     private val emptyPlayListList: List<PlayList> = emptyList()
-    private var requestUserId by Delegates.notNull<Int>()
+    private var requestUserId by Delegates.notNull<String>()
 
     @Mock
     lateinit var repository: DeezerRepository
@@ -31,7 +31,7 @@ class GetPlayListUseCaseTest {
 
     @Before
     fun init() {
-        requestUserId = 5
+        requestUserId = "5"
     }
 
 
