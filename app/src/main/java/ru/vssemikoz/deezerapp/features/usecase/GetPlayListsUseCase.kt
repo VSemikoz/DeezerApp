@@ -6,10 +6,10 @@ import ru.vssemikoz.deezerapp.data.repository.DeezerRepository
 import ru.vssemikoz.deezerapp.models.PlayList
 import javax.inject.Inject
 
-class GetPlayListsUseCase @Inject constructor() : BaseUseCase<Observable<List<PlayList>>, Int> {
+class GetPlayListsUseCase @Inject constructor() : BaseUseCase<Observable<List<PlayList>>, String> {
     @Inject
     lateinit var deezerRepository: DeezerRepository
 
-    override fun run(params: Int): Observable<List<PlayList>> =
+    override fun run(params: String): Observable<List<PlayList>> =
         deezerRepository.getUserPlayLists(params)
 }

@@ -42,7 +42,8 @@ android {
         dev {
             dimension "environment"
             buildConfigField "String", "MAIN_URL", "\"https://api.deezer.com/\""
-            buildConfigField "Integer", "BASE_USER_ID", "5"
+            buildConfigField "String", "BASE_USER_ID", "\"5\""
+            buildConfigField "Integer", "UNLIMITED", "-1"
         }
     }
 }

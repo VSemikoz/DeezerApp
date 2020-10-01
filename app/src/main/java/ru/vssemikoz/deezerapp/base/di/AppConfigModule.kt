@@ -10,6 +10,7 @@ class AppConfigModule {
     @Provides
     fun provideAppConfig(): AppConfig = AppConfig(
         baseUrl = BuildConfig.MAIN_URL,
-        fixedUserId = BuildConfig.BASE_USER_ID
+        fixedUserId = BuildConfig.BASE_USER_ID,
+        limit = BuildConfig.UNLIMITED
     )
 }

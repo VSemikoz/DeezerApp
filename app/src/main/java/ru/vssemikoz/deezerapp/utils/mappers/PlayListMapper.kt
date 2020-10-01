@@ -10,7 +10,7 @@ object PlayListMapper : BaseMapper<DeezerApiPlayListsResponse, List<PlayList>> {
         mapObject.apiPlayListsResponse.forEach {
             result.add(
                 PlayList(
-                    id = it.id.toInt(),
+                    id = it.id,
                     coverSmall = it.pictureMedium,
                     coverBig = it.pictureBig,
                     title = it.title,

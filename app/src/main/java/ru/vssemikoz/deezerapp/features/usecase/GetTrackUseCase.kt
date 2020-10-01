@@ -6,10 +6,10 @@ import ru.vssemikoz.deezerapp.data.repository.DeezerRepository
 import ru.vssemikoz.deezerapp.models.Track
 import javax.inject.Inject
 
-class GetTrackUseCase @Inject constructor() : BaseUseCase<Observable<List<Track>>, Int> {
+class GetTrackUseCase @Inject constructor() : BaseUseCase<Observable<List<Track>>, String> {
     @Inject
     lateinit var deezerRepository: DeezerRepository
 
-    override fun run(params: Int): Observable<List<Track>> =
+    override fun run(params: String): Observable<List<Track>> =
         deezerRepository.getTracksFromPlayList(params)
 }
