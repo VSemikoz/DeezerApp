@@ -3,7 +3,7 @@ package ru.vssemikoz.deezerapp.models
 import java.io.Serializable
 
 data class PlayList(
-    val id: Int,
+    val id: String,
     val coverSmall: String,
     val coverBig: String,
     val title: String,

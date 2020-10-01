@@ -1,6 +1,5 @@
 package ru.vssemikoz.deezerapp.features.playlistselection
 
-
 import android.widget.ImageView
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
@@ -24,7 +23,7 @@ class PlayListSelectionViewModel @Inject constructor() : BaseObservable() {
     var navigator: PlayListSelectionNavigator? = null
 
     @Inject
-    lateinit var getPlayListsUseCase: BaseUseCase<Observable<List<PlayList>>, Int>
+    lateinit var getPlayListsUseCase: BaseUseCase<Observable<List<PlayList>>, String>
 
     @Inject
     lateinit var config: AppConfig
