@@ -7,3 +7,5 @@ in format track name, author, duration in format hh.mm.
 Language: Kotlin
 
 Usage: MVVM, LiveData, Retrofit, RxJava3, Dagger2, JUnit, Mockito
+
+Implemented: 2 screens(PlayList Selection and PlayList Details), 2 use case tests.
