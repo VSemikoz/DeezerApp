@@ -13,6 +13,7 @@ class RemoteDeezerRepository @Inject constructor() : DeezerRepository {
 
     @Inject
     lateinit var api: DeezerApi
+
     @Inject
     lateinit var config: AppConfig
 

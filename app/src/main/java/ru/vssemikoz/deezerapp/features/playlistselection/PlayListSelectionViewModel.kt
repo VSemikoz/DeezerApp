@@ -1,7 +1,5 @@
 package ru.vssemikoz.deezerapp.features.playlistselection
 
-
-import android.util.Log
 import android.widget.ImageView
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
